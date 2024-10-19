@@ -1,5 +1,6 @@
 import React from 'react'
 import { BackgroundLinesDemo } from './components/BackgroundLinesDemo'
+import { BackgroundGradientDemo } from './components/BackgroundGradientDemo'
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
     <BackgroundLinesDemo />
+    <BackgroundGradientDemo />
     </>
   )
 }

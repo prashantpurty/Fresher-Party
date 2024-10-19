@@ -1,6 +1,6 @@
 import React from "react";
 import { BackgroundLines } from "@/components/ui/background-lines";
-
+import { FlipWordsDemo } from "./FlipWordsDemo";
 export function BackgroundLinesDemo() {
   return (
     (<BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
@@ -10,9 +10,17 @@ export function BackgroundLinesDemo() {
       </h2>
       <p
         className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
-        Get the best advices from our experts, including expert artists,
-        painters, marathon enthusiasts and RDX, totally free.
+       💥 YO FRESHERS! 💥<br />
+       It’s time to vibe, slay, and make some memories. 💫
       </p>
+      <br />
+      <p className="text-white mx-auto text-center md:text-xl">
+         <div className="text-5xl font-mono">Fresher Party 2024 </div><br />
+         ✨ New Faces, Crazy Vibes, Endless Fun ✨
+         </p>
+         <div className="text-2xl">
+          <FlipWordsDemo />
+         </div>
     </BackgroundLines>)
   );
 }

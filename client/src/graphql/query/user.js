@@ -31,4 +31,19 @@ export const GetVerifyTicket = `#graphql
     
   }
 }
-`
+`;
+export const GetAllUsers = `#graphql
+  query GetAllUsers($limit: Int, $offset: Int) {
+  getAllUsers(limit: $limit, offset: $offset) {
+    users {
+      name
+      Ticket {
+        id
+      }
+      picture
+      email
+    }
+    totalCount
+  }
+}
+`;

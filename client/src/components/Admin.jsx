@@ -9,9 +9,11 @@ import {
   Divider,
   Link,
   Image,
+  ScrollShadow,
 } from "@nextui-org/react";
 import { GetVerifyTicket } from "../graphql/query/user";
 import { useVerifyTicket } from "../hooks/client";
+import GetAllUserCom from "./GetUser";
 
 const Admin = () => {
   const [data, setData] = useState("No result");
@@ -34,10 +36,11 @@ const Admin = () => {
                 console.info(error);
               }
             }}
+            constraints={{ facingMode: "environment" }}
             style={{ width: "100%" }}
           />
         </div>
-        <div>
+        <div className="relative">
           <Card className="max-w-[400px] w-96 h-full mt-4">
             {/* <CardHeader className="flex gap-3">
               <Image

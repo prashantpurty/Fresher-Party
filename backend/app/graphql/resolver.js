@@ -87,6 +87,27 @@ const queries = {
 
     return ticketRec;
   },
+
+  getAllUsers: async (parent, { limit = 10, offset = 0 }, context) => {
+    if (!context.user?.email) throw new Error("Unauthorized");
+
+    if (!ADMIN.split(",").includes(context.user.email))
+      throw new Error("Unauthorized");
+
+    const [allUsers, totalCount] = await Promise.all([
+      prismaClient.user.findMany({
+        skip: offset,
+        take: limit,
+        include: { Ticket: true },
+      }),
+      prismaClient.user.count(), // Get total user count
+    ]);
+
+    return {
+      users: allUsers,
+      totalCount,
+    };
+  },
 };
 
 const mutation = {

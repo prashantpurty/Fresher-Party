@@ -8,6 +8,11 @@ const type = `#graphql
     createdAt: String!
   }
 
+  type PaginatedUsers {
+      users: [User]
+      totalCount: Int
+    }
+
     type Ticket {
     id: ID!
     ownerId: ID!
@@ -17,6 +22,9 @@ const type = `#graphql
     createdAt: String!
     updatedAt: String!
     }
+
+    
+
 `;
 
 module.exports = { type };

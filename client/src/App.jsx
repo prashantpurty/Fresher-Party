@@ -8,12 +8,15 @@ import Ticket from "./components/Ticket";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
 
-const ADMIN = import.meta.env.VITE_ADMIN;
+const ADMIN =
+  import.meta.env.VITE_ADMIN ||
+  "220714100017@cutm.ac.in,220714100025@cutm.ac.in,230714100023@centurionuniv.edu.in,230714100085@centurionuniv.edu.in,230714100103@centurionuniv.edu.in,230714100084@centurionuniv.edu.in";
 
 function App() {
   const { user, error } = useCurrectUser();
 
   const isAdmin = user && ADMIN.split(",").includes(user.email);
+  console.log(isAdmin);
 
   return (
     <div className="dark">

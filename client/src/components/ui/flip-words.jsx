@@ -1,13 +1,8 @@
-"use client";
 import React, { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "@/lib/FlipText";
+import { cn } from "../../lib/hero";
 
-export const FlipWords = ({
-  words,
-  duration = 3000,
-  className
-}) => {
+export const FlipWords = ({ words, duration = 3000, className }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -25,10 +20,11 @@ export const FlipWords = ({
   }, [isAnimating, duration, startAnimation]);
 
   return (
-    (<AnimatePresence
+    <AnimatePresence
       onExitComplete={() => {
         setIsAnimating(false);
-      }}>
+      }}
+    >
       <motion.div
         initial={{
           opacity: 0,
@@ -55,7 +51,8 @@ export const FlipWords = ({
           "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
           className
         )}
-        key={currentWord}>
+        key={currentWord}
+      >
         {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
@@ -66,7 +63,8 @@ export const FlipWords = ({
               delay: wordIndex * 0.3,
               duration: 0.3,
             }}
-            className="inline-block whitespace-nowrap">
+            className="inline-block whitespace-nowrap"
+          >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
                 key={word + letterIndex}
@@ -76,7 +74,8 @@ export const FlipWords = ({
                   delay: wordIndex * 0.3 + letterIndex * 0.05,
                   duration: 0.2,
                 }}
-                className="inline-block">
+                className="inline-block"
+              >
                 {letter}
               </motion.span>
             ))}
@@ -84,6 +83,6 @@ export const FlipWords = ({
           </motion.span>
         ))}
       </motion.div>
-    </AnimatePresence>)
+    </AnimatePresence>
   );
 };

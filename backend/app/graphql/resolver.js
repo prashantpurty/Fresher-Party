@@ -15,10 +15,11 @@ const queries = {
     });
 
     const emailPattern =
-      /^(220714100|230714100|240714100|230704440)\d*@(cutm\.ac\.in)$/; // Updated regex for email validation
+      /^(220714100|230714100|240714100|240704440)\d*@((cutm\.ac\.in)|(centurionuniv\.edu\.in))$/; // Updated regex to allow both domains
+
     if (!emailPattern.test(data.email)) {
       throw new Error(
-        "Invalid email address. Must start with one of the specified prefixes and be from @cutm.ac.in."
+        "Invalid email address. Must start with one of the specified prefixes and be from @cutm.ac.in or @centurionuniv.edu.in."
       );
     }
 

@@ -43,7 +43,7 @@ const Footer = () => {
 
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div>
-              <p>👋 Designd by Prashat & Aditya</p>
+              <p>👋 Designd by Prashant & Aditya</p>
             </div>
             <div className="flex mt-4 md:m-0">
               <div className="flex items-center">
@@ -53,7 +53,7 @@ const Footer = () => {
                   className="px-4 text-sm text-gray-600 transition-colors duration-300 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 hover:underline flex gap-1 items-center"
                 >
                   <IconBrandGithub className="h-5 w-5 text-neutral-500" />{" "}
-                  <span>Prashat</span>
+                  <span>Prashant</span>
                 </Link>
                 <Link
                   to={"https://www.github.com/AdityaKumar41"}

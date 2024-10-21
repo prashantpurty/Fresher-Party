@@ -38,8 +38,8 @@ const Admin = () => {
           />
         </div>
         <div>
-          <Card className="max-w-[400px] mt-4">
-            <CardHeader className="flex gap-3">
+          <Card className="max-w-[400px] w-96 h-full mt-4">
+            {/* <CardHeader className="flex gap-3">
               <Image
                 alt="nextui logo"
                 height={40}
@@ -51,15 +51,22 @@ const Admin = () => {
                 <p className="text-md">NextUI</p>
                 <p className="text-small text-default-500">nextui.org</p>
               </div>
-            </CardHeader>
+            </CardHeader> */}
+            <CardHeader>{ticket?.id || "No Id Found!"}</CardHeader>
             <Divider />
             <CardBody>
-              <p>
-                Make beautiful websites regardless of your design experience.
-              </p>
+              {error ? (
+                error?.response?.errors?.[0]?.message
+              ) : (
+                <div>
+                  <p>owner: {ticket?.ownerId || "No Name Found!"}</p>
+                  <p>Food: {ticket?.foodPreference || "No Name Found!"}</p>
+                  <p>Redeem: {ticket?.redeemed || "No Name Found!"}</p>
+                </div>
+              )}
             </CardBody>
             <Divider />
-            <CardFooter>
+            {/* <CardFooter>
               <Link
                 isExternal
                 showAnchorIcon
@@ -67,7 +74,7 @@ const Admin = () => {
               >
                 Visit source code on GitHub.
               </Link>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </div>
       </div>

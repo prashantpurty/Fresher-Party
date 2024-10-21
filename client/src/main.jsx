@@ -20,7 +20,6 @@ createRoot(document.getElementById("root")).render(
         <QueryClientProvider client={client}>
           <App />
           <Toaster />
-          <ReactQueryDevtools />
         </QueryClientProvider>
       </GoogleOAuthProvider>
     </NextUIProvider>

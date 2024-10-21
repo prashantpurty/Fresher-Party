@@ -21,7 +21,6 @@ const formSchema = z.object({
 });
 
 const ticketHints = [
-  "Always keep your ticket in a safe place to avoid loss or damage.",
   "Make sure to arrive at least 30 minutes before the event starts.",
   "Have your ID ready along with your ticket for verification.",
   "Check the venue's policies on prohibited items before attending.",
@@ -45,13 +44,11 @@ export default function TicketHintPage() {
     setIsLoading(true);
     const { description, foodPreference } = data;
     try {
-      await mutate({ description, foodPreference });
-     
-      window.localStorage.setItem("ticket", result);
+      mutate({ description, foodPreference });
       toast.success("Ticket preferences submitted successfully!");
       navigation("/ticket");
     } catch (error) {
-      toast.error("An error occurred. Please try again later.");
+      toast.error(error?.response?.errors?.[0]?.message);
     }
     setIsLoading(false);
   };
